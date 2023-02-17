@@ -39,28 +39,34 @@ module.exports = {
     // react rules
     'react/jsx-key': ['error'],
     'react/jsx-indent': ['error', 2],
-    'react/jsx-indent-props': ['error', 'tab'],
+    'react/jsx-props-no-spreading': ['off'],
+    'react/jsx-indent-props': ['error', 2],
+    'react/react-in-jsx-scope': ['off'],
+    'react/require-default-props': ['off'],
+    'react/function-component-definition': ['off'],
     'react-hooks/exhaustive-deps': ['off'],
 
     // next rules
-    '@next/next/no-html-link-for-pages': 'off',
+    '@next/next/no-html-link-for-pages': ['off'],
 
     // typescript eslint rules
     '@typescript-eslint/default-param-last': ['off'],
 
-    // import rules
+    // eslint-plugin-import
     'import/extensions': ['off'],
+    'import/prefer-default-export': ['off'],
+    'import/no-extraneous-dependencies': ['off'],
 
-    // prettier rules
+    // eslint-plugin-unused-imports
+    'unused-imports/no-unused-imports': ['error'],
+
+    // eslint-plugin-prettier
     'prettier/prettier': [
       'error',
       { tabWidth: 2, useTabs: false, endOfLine: 'auto' },
     ],
 
-    // unused imports rules
-    'unused-imports/no-unused-imports': ['error'],
-
-    // simple import rules
+    // eslint-plugin-simple-import-sort
     'simple-import-sort/exports': ['error'],
     'simple-import-sort/imports': [
       'error',
