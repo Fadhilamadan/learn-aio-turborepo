@@ -8,3 +8,13 @@ export const getTodos = async (): Promise<Todo[]> => {
 
   return todos.slice(0, 10);
 };
+
+export const postTodo = async (todo: Todo): Promise<Todo> => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/todos', {
+    method: 'POST',
+    body: JSON.stringify(todo),
+  });
+  const createdTodo = await response.json();
+
+  return createdTodo.slice(0, 10);
+};
