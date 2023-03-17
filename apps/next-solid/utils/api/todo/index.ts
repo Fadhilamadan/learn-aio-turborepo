@@ -14,7 +14,5 @@ export const postTodo = async (todo: Todo): Promise<Todo> => {
     method: 'POST',
     body: JSON.stringify(todo),
   });
-  const createdTodo = await response.json();
-
-  return createdTodo.slice(0, 10);
+  return response.json();
 };
