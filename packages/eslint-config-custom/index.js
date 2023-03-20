@@ -11,15 +11,16 @@ module.exports = {
     project: './tsconfig.json',
   },
   extends: [
-    'next',
     'turbo',
-    'airbnb-typescript',
+    'next',
     'next/core-web-vitals',
+    'airbnb',
+    'airbnb-typescript',
     'prettier',
   ],
   rules: {
     // default rules
-    semi: ['error', 'always'],
+    semi: ['error', 'never'],
     quotes: ['error', 'single'],
     'comma-dangle': ['error', 'always-multiline'],
     'no-tabs': ['error', { allowIndentationTabs: true }],
@@ -33,16 +34,17 @@ module.exports = {
     ],
     'max-len': [
       'error',
-      { code: 80, tabWidth: 1, ignoreComments: true, ignoreUrls: true },
+      { code: 100, tabWidth: 2, ignoreComments: true, ignoreUrls: true },
     ],
 
     // react rules
     'react/jsx-key': ['error'],
-    'react/jsx-indent': ['error', 2],
+    'react/jsx-indent': ['error', 'tab'],
     'react/jsx-props-no-spreading': ['off'],
-    'react/jsx-indent-props': ['error', 2],
+    'react/jsx-indent-props': ['error', 'tab'],
     'react/react-in-jsx-scope': ['off'],
     'react/require-default-props': ['off'],
+    'react/destructuring-assignment': ['off'],
     'react/function-component-definition': ['off'],
     'react-hooks/exhaustive-deps': ['off'],
 
@@ -50,7 +52,9 @@ module.exports = {
     '@next/next/no-html-link-for-pages': ['off'],
 
     // typescript eslint rules
-    '@typescript-eslint/default-param-last': ['off'],
+    '@typescript-eslint/no-explicit-any': ['error'],
+    '@typescript-eslint/no-unused-vars': ['error'],
+    '@typescript-eslint/default-param-last': ['error'],
 
     // eslint-plugin-import
     'import/extensions': ['off'],
@@ -61,10 +65,7 @@ module.exports = {
     'unused-imports/no-unused-imports': ['error'],
 
     // eslint-plugin-prettier
-    'prettier/prettier': [
-      'error',
-      { tabWidth: 2, useTabs: false, endOfLine: 'auto' },
-    ],
+    'prettier/prettier': ['error', { semi: false, endOfLine: 'auto' }],
 
     // eslint-plugin-simple-import-sort
     'simple-import-sort/exports': ['error'],
@@ -73,7 +74,7 @@ module.exports = {
       {
         groups: [
           ['^react.*', '^next.*', '^(?!src|.?./|.+\\.(s?css|less)$).*'],
-          ['^src'],
+          ['^@/'],
           [
             '^\\.\\.(?!/?$)',
             '^\\.\\./?$',
